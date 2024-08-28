@@ -16,30 +16,47 @@ class PermissionsWindow:
 
     def create_widgets(self) -> None:
         try:
+            # Create the frame that will contain the canvas and scrollbar
             permissions_frame = tk.Frame(self.window)
             permissions_frame.pack(pady=10, fill=tk.BOTH, expand=True)
 
-            canvas = tk.Canvas(permissions_frame)
+            # Create the canvas and attach a vertical scrollbar to it
+            canvas = tk.Canvas(permissions_frame, height=200)
             scrollbar = tk.Scrollbar(permissions_frame, orient="vertical", command=canvas.yview)
             scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
+            # Create a frame inside the canvas that will hold the permissions list
             self.inner_frame = tk.Frame(canvas)
+
+            # Create a window in the canvas to contain the inner frame
             canvas.create_window((0, 0), window=self.inner_frame, anchor="nw")
             canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
             canvas.config(yscrollcommand=scrollbar.set)
 
+            # Update the inner_frame size and configure the scrollregion
+            self.inner_frame.update_idletasks()
+            canvas.config(scrollregion=canvas.bbox("all"))
+
+            # Update the permissions list
             self.update_permissions_list()
 
+            # Create the buttons frame and add the Add Permission button
             buttons_frame = tk.Frame(self.window)
             buttons_frame.pack(pady=10, fill=tk.X)
-
             add_button = tk.Button(buttons_frame, text="Add Permission", command=self.add_permission)
             add_button.pack(side=tk.BOTTOM, pady=10)
 
-            self.inner_frame.update_idletasks()
-            canvas.config(scrollregion=canvas.bbox("all"))
+            # Bind the resize event to update the scrollregion
+            self.window.bind("<Configure>", self.on_window_resize)
+
         except Exception as e:
             print(f"Error creating widgets: {e}")
+
+    def on_window_resize(self, event: tk.Event) -> None:
+        """Update the scrollregion of the canvas when the window is resized."""
+        if hasattr(self, 'canvas'):
+            self.canvas.config(scrollregion=self.canvas.bbox("all"))
+
 
     def update_permissions_list(self) -> None:
         try:

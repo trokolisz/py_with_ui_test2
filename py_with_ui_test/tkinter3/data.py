@@ -5,9 +5,9 @@ from exceptions import UserNotFoundError, PermissionError
 class UserData:
     def __init__(self) -> None:
         self.users = pd.DataFrame([
-            {"id": "123456", "name": "Alice", "username": "alice123", "enabled": True, "permissions": ["read", "write"]},
-            {"id": "234567", "name": "Bob", "username": "bob234", "enabled": False, "permissions": ["read"]},
-            {"id": "345678", "name": "Charlie", "username": "charlie345", "enabled": True, "permissions": ["write"]}
+            {"id": "123456", "name": "Alice", "username": "alice123", "email": "alice@example.com", "role": "Admin", "enabled": True, "permissions": ["read", "write"]},
+            {"id": "234567", "name": "Bob", "username": "bob234", "email": "bob@example.com", "role": "User", "enabled": False, "permissions": ["read"]},
+            {"id": "345678", "name": "Charlie", "username": "charlie345", "email": "charlie@example.com", "role": "Manager", "enabled": True, "permissions": ["write"]}
         ])
 
     def search_users(self, search_value: str) -> List[Dict[str, any]]:
