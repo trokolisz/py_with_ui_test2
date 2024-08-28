@@ -15,7 +15,9 @@ class UserData:
             filtered_df = self.users[
                 self.users["name"].str.contains(search_value, case=False) |
                 self.users["username"].str.contains(search_value, case=False) |
-                self.users["id"].str.contains(search_value)
+                self.users["id"].str.contains(search_value) |
+                self.users["email"].str.contains(search_value, case=False) |
+                self.users["role"].str.contains(search_value, case=False)
             ]
             return filtered_df.to_dict(orient="records")
         except Exception as e:

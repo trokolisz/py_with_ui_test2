@@ -14,3 +14,5 @@
 2024-08-28 22:30:35,363 - ERROR - Error showing permissions: 'PermissionsWindow' object has no attribute 'create_widgets'
 2024-08-28 22:30:38,492 - ERROR - Error showing permissions: 'PermissionsWindow' object has no attribute 'create_widgets'
 2024-08-28 22:30:38,492 - ERROR - Error showing permissions: 'PermissionsWindow' object has no attribute 'create_widgets'
+2024-08-28 22:36:25,750 - ERROR - Error handling item click: 'Actions' is not in list
+2024-08-28 22:36:25,750 - ERROR - Error handling item click: 'Actions' is not in list
