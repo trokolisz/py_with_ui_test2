@@ -63,55 +63,30 @@ An SQLite database (`data.db`) is used to store data.
 
 ### 4.1 Core Functionality
 
-- [ ] **Active Directory Queries**
+- [ ] **Plan Error Handling Strategy**
 
-  - Implement function to query users in a directory.
-  - **Interacting with**: `/src/` (implementing query functions), `/utils/`
-  - Store queried data in a local cache/database.
-  - **Interacting with**: `/data/`, `/utils/db_helper.py` (implementing caching functions)
+  - Identify potential failure points and exceptions in each function.
+  - **Interacting with**: `/docs/` (documenting error handling strategy), `/src/`, `/utils/`
 
-- [ ] **User Management**
-  - Implement password reset functionality.
-  - **Interacting with**: `/src/`, `/utils/`
-  - Implement user creation function.
-  - **Interacting with**: `/src/`, `/utils/`
-  - Implement "Member Of" management.
-  - **Interacting with**: `/src/`, `/utils/`
-  - Implement user disabling function.
-  - **Interacting with**: `/src/`, `/utils/`
+- [ ] **Set Up Logging Framework**
+  - Choose and configure a logging library.
+  - **Interacting with**: `/src/`, `/utils/`, `/logs/` (set up logging early)
 
-### 4.2 UI Development
+### 4.2 Early Development
 
-- [ ] **Main Window**
+- [ ] **Implement Basic Error Handling and Logging**
+  - Integrate try-except blocks in critical areas as you write the code.
+  - Add logging statements for key events and errors.
+  - **Interacting with**: `/src/`, `/utils/`, `/logs/`
 
-  - Design the main window to display user data.
-  - **Interacting with**: `/gui/windows/main_window.py`, `/gui/style/styles.py`
-  - Add functionality to filter and search users.
-  - **Interacting with**: `/gui/windows/main_window.py`, `/src/`
-  - Implement buttons for user actions (e.g., reset password, disable user).
-  - **Interacting with**: `/gui/windows/main_window.py`, `/src/`
+### 4.3 Continue Development with Error Handling and Logging Integrated
 
-- [ ] **"Member Of" Management Window**
-
-  - Design a window to display and manage the "Member Of" attribute.
-  - **Interacting with**: `/gui/windows/`, `/gui/style/`, `/src/`
-
-- [ ] **Settings Window**
-  - Implement a settings window to configure displayed user attributes.
-  - **Interacting with**: `/gui/windows/`, `/gui/style/`
-
-### 4.3 Caching & Optimization
-
-- [ ] **Local Database Setup**
-
-  - Set up SQLite or PostgreSQL database for caching.
-  - **Interacting with**: `/data/data.db`, `/utils/db_helper.py`
-  - Implement CRUD operations for caching user data.
-  - **Interacting with**: `/utils/db_helper.py`
-
-- [ ] **Optimization**
-  - Minimize database queries by using cache effectively.
-  - **Interacting with**: `/src/`, `/utils/`
+- [ ] **Develop Core Functionality with Error Handling in Mind**
+  - Implement functions and ensure each has appropriate error handling.
+  - **Interacting with**: `/src/`, `/utils/`, `/logs/`
+- [ ] **Develop UI with Logging**
+  - Log user actions, errors, and other events.
+  - **Interacting with**: `/gui/`, `/logs/`
 
 ## 5. Error Handling & Logging
 
