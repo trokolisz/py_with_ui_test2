@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from .widgets import DataTable
+from ..widgets.widgets import DataTable
 from utils.db_helper import fetch_data
 
 class MainWindow:

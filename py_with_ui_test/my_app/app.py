@@ -1,5 +1,5 @@
 from tkinter import Tk, messagebox
-from gui.main_window import MainWindow
+from my_app.gui.windows.main_window import MainWindow
 from utils.db_helper import create_table
 import logging
 
